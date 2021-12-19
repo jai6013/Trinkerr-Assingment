@@ -52,7 +52,7 @@ div > input{
 }
 .hiddenButtons button {
     cursor: pointer;
-    background-color: rgb(172, 216, 243);
+    background-color: rgb(132, 198, 240);
     border: none;
     border-radius: 2px;
 }
@@ -111,8 +111,23 @@ div > input{
     padding: 16px;
     background-color: rgb(214, 229, 247);
     box-shadow: 0px 0px 4px rgb(1,73,157);
-    color: rgb(61, 112, 250)
+    color: rgb(61, 112, 250);
+    display: flex;
+    justify-content: space-around;
 }
 .bt{
     color: white;
+}
+.watchlist{
+    cursor: pointer;
+    color: rgb(214, 229, 247);
+    background-color: rgb(61, 112, 250);
+    box-sizing: border-box;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+}
+
+.watchlist:hover{
+    box-shadow: 0px 0px 4px rgb(1,73,157);
 }

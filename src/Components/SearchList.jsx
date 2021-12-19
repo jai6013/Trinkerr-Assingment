@@ -96,7 +96,7 @@ const SearchList = () => {
 
   return (
     <>
-      <h1 className={styles.nav}>Trinkerr</h1>
+      <h1 className={styles.nav}>Trinkerr <div className={styles.watchlist} onClick={() => {setQuery(""); setNewData(listData.current)}}>Watchlist</div></h1>
       <div id={styles.root}>
         <div>
           <input
@@ -132,7 +132,7 @@ const SearchList = () => {
                 onMouseEnter={() => handleSeeButton(index, item)}
                 onMouseLeave={() => handleNotSeeButton()}
                 style={{
-                  color: color(item) ? "rgb(231,89,46)" : "#bad5f5",
+                  color: color(item) ? "rgb(231,89,46)" : "#95bef0",
                 }}
                 className={styles.part}
               >
