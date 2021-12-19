@@ -54,8 +54,12 @@ const SearchList = () => {
   };
 
   const handleAdd = (item) => {
+    if(listData.current.some((i) => i[0] === item[0])){
+      return
+    }
     listData.current = [item, ...listData.current];
   };
+
   const handleDelete = (ind) => {
     listData.current = listData.current.filter((item, index) => index !== ind);
     setNewData(listData.current);
@@ -72,6 +76,7 @@ const SearchList = () => {
     });
     setButtonShow(buttonShow);
   };
+  
   const handleNotSeeButton = () => {
     let buttonShow = new Array(newData.length).fill({ show: false });
     setButtonShow(buttonShow);
