@@ -11,22 +11,24 @@ const SearchList = () => {
   const [query, setQuery] = useState("");
   const [newData, setNewData] = useState([]);
   const listData = useRef([]);
-  // const [addButton, setAddButton] = useState(false);
   const [showWatchList, setShow] = useState(false);
   const [button, setButtonShow] = useState([]);
+
+
   const handlePercentage = (price1, price2) => {
     return (((price1 - price2) / price2) * 100).toFixed(2);
   };
+
   const color = (item) => {
     return handlePercentage(item[1], item[2]) < 0 ? true : false;
   };
+
   const handleSearch = (q) => {
-    setQuery(q);
-    if (q.length === 0) {
+    if (q === "") {
       setShow(true);
       setNewData(listData.current);
     } else {
-      if (q.length < 2) {
+      if (q.length <= 1) {
         return;
       }
       setShow(false);
@@ -35,11 +37,12 @@ const SearchList = () => {
         timerId = setTimeout(() => {
           getData(q);
           clearTimeout(timerId);
-        }, 500);
+        }, 200);
       }
     }
+    setQuery(q);
   };
-
+  
   const getData = (q) => {
     const filterData = (item) => {
       if (item[0].split("::")[0].includes(q)) {
@@ -76,6 +79,7 @@ const SearchList = () => {
 
   return (
     <>
+      <h1 className={styles.nav}>Trinkerr</h1>
       <div id={styles.root}>
         <div>
           <input
@@ -85,11 +89,12 @@ const SearchList = () => {
             className={styles.searchStock}
           />
         </div>
+        <br/>
         <div
           className={styles.heading}
           style={{ display: query === "" ? "block" : "none" }}
         >
-          <div className={styles.heading}>Jai Watchlist</div>
+          <div className={styles.heading}>Watchlist</div>
         </div>
         
         {
@@ -106,7 +111,7 @@ const SearchList = () => {
                 key={index}
                 onMouseEnter={() => handleSeeButton(index)}
                 onMouseLeave={() => handleNotSeeButton()}
-                style={{ color: color(item) ? "red" : "green" }}
+                style={{ color: color(item) ? "rgb(231,89,46)" : "rgb(193,236,235)" }}
                 className={styles.part}
               >
                 <div className={styles.part1}>
@@ -125,6 +130,7 @@ const SearchList = () => {
                   button[index] === true ? (
                     <button onClick={() => handleDelete(index)}>
                       <DeleteIcon
+                        className={styles.bt}
                         style={{ display: button[index] ? "block" : "none" }}
                       />
                     </button>
@@ -132,6 +138,7 @@ const SearchList = () => {
                 ) : button[index] === true ? (
                   <button onClick={() => handleAdd(item)}>
                     <AddIcon
+                      className={styles.bt}
                       style={{ display: button[index] ? "block" : "none" }}
                     />
                   </button>

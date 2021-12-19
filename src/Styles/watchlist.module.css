@@ -3,9 +3,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* background-color: lightblue; */
     box-sizing: border-box;
-    padding: 10px;
+    padding: 13px;
+    box-shadow: 0px 0px 7px rgb(1,73,157);
+    width: fit-content;
+    border-radius: 5px;
+    margin: auto;
 }
 .searchStock {
     min-width: 500px;
@@ -16,10 +19,15 @@
 .partsBody, .part1, .part2{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: stretch;
 }
-
+.partsBody{
+    max-height: 540px;
+    overflow-y: scroll;
+}
+.partsBody::-webkit-scrollbar{
+    display: none;
+}
 .part2 {
     text-align: right;
 }
@@ -41,8 +49,8 @@
 }
 .hiddenButtons button {
     cursor: pointer;
-    background-color: lightgray;
-    border: 1px solid grey;
+    background-color: rgb(172, 216, 243);
+    border: none;
     border-radius: 2px;
 }
 .hiddenButtons button:hover {
@@ -58,7 +66,6 @@
     background-color: white;
     min-width: 500px;
     text-align: left;
-    color: green;
     font-weight: 500;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 10px;
@@ -72,17 +79,17 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
     min-width: 520px;
-    background-color: rgb(214, 229, 247);
+    background-color: white;
     font-size: 20px;
     font-weight: 600;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    color: rgb(0,127,255);
+    padding-top: 0px;
+    padding-bottom: 5px;
+    color: rgb(75, 122, 250)
 }
 
 .part:hover {
     cursor: pointer;
-    background-color: rgb(233, 233, 233);
+    background-color: rgb(240, 248, 255)
 }
 .percent{
     display: flex;
@@ -93,4 +100,16 @@
 
 ::placeholder{
     font-size: 16px;
+}
+.nav{
+    margin-top: 0px;
+    font-family: monospace;
+    letter-spacing: 2px;
+    padding: 16px;
+    background-color: rgb(214, 229, 247);
+    box-shadow: 0px 0px 4px rgb(1,73,157);
+    color: rgb(61, 112, 250)
+}
+.bt{
+    color: white;
 }
